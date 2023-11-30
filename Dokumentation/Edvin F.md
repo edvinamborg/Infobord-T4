@@ -15,3 +15,18 @@ I've continued to work with APIs in C#, and have made some progress. I went thro
 2023-11-23
 ----------------
 After completing the tutorial I mentioned above, I continued with more of the same kind. I've started prioritizing tutorial projects related to Entity Framework Core, as it seems like a technology that could be very useful in this project. It allows me to connect a .NET API to an external database service, such as MongoDB. I went through this entire course today: https://learn.microsoft.com/en-us/training/modules/build-web-api-minimal-database, and started on this one: https://learn.microsoft.com/en-us/training/modules/secure-aspnet-core-identity/. However, the SQL database doesn't register changes made in the project. It seems that the problem has to do with an extension that the project requires, https://github.com/Microsoft/vscode-mssql.git. After downloading the extension, I can't seem to use its funcitons. When I attempted to connect to the SQL server, I got a message stating "command mssql.connect not found". I tried uninstalling and reinstalling the extension in two ways, while also reloading VSCodium. It had no effect, unfortunately, so I'll continue trying to fix it tomorrow.
+
+2023-11-30
+--------------
+For the past few days, I've been working on setting up a small API that connects to a MongoDB database and prints out some data that is extracted from the database. The project I've been following can be found here: https://www.mongodb.com/docs/entity-framework/current/quick-start/. It's a small project, but it seems to teach exactly what is needed for this project. I had a little trouble setting up an environment variable, but I eventually opted for entering it manually through Windows settings rather than trying to generate it through a CLI. This worked. I then ran into the issue of not being able to connect to the MongoDB database. I got a rather massive error message, that basically just said "timed out". I had received intel from a group member, Johannes, that this would happen, so no surprise. All I had to do was change network to a hotspot on my phone or try it from home. However, this did not work. I kept getting the same "time out" message, and I was unsure of what was wrong. I think it took me in total about half an hour to figure out that the reason why it wasn't working is because only one IP address was whitelisted in my cluster on MongoDB; the IP address that this computer has on the school's network. All I had to do was connect to my phone's hotspot, add that IP address to the cluster's list of whitelisted IP addresses, and now I know the plot of Back to the Future (a message that tells the plot of the movie in question is extracted from the database and written out in the console, to show a successful connect). I used the following links when working:
+* https://cloud.mongodb.com/
+* https://www.mongodb.com/docs/guides/crud/install/
+* https://www.mongodb.com/docs/drivers/csharp/current/
+* https://www.mongodb.com/docs/drivers/csharp/current/quick-start/#std-label-csharp-quickstart
+* https://stackoverflow.com/questions/76603019/the-term-export-is-not-being-recognized
+* https://stackoverflow.com/questions/52885919/c-sharp-predefined-type-system-object-is-not-defined-or-imported
+* https://learn.microsoft.com/en-us/dotnet/core/tools/sdk-errors/netsdk1045
+* https://stackoverflow.com/questions/31314245/a-timeout-occured-after-30000ms-selecting-a-server-using-compositeserverselector
+* https://stackoverflow.com/questions/55573811/a-timeout-occured-after-30000ms-selecting-a-server-while-accessing-mongodb-in-az
+* https://www.mongodb.com/community/forums/t/timeout-when-selecting-a-server-after-inactivity/147978/2
+* https://www.mongodb.com/docs/atlas/troubleshoot-connection/
