@@ -5,5 +5,6 @@ Måndag 27 november 2023
 Idag har jag samlat data om Fett- och Fiberkällor och samlat informationen i ett dokument.
 
 
-Tisdag 28 november 2023
+Torsdag 30 november 2023
 ---------------
+
