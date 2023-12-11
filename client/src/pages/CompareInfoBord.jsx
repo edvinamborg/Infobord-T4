@@ -8,17 +8,29 @@ const CompareInfoBord = ({ image }) => {
     <div className="flex-template">
       <div className="grid-template grid-template-left">
         <div className="left-description">
-          <div className="left-description-text">
-            <h3>Beskrivning</h3>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et
-            <h4>Utsläpp</h4>
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex xcepteur sint occaecat cupidatat non
-            <h4>Näringsvärden</h4>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur.
-          </div>
+          <article className="left-description-text">
+            <section>
+              <h3>Beskrivning</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et
+              </p>
+            </section>
+            <section>
+              <h4>Utsläpp</h4>
+              <p>
+                ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquip ex xcepteur sint occaecat cupidatat non
+              </p>
+            </section>
+            <section>
+              <h4>Näringsvärden</h4>
+              <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur.
+              </p>
+            </section>
+          </article>
         </div>
 
         <div className="fruit-left">
@@ -39,17 +51,29 @@ const CompareInfoBord = ({ image }) => {
 
       <div className="grid-template grid-template-right">
         <div className="right-description">
-          <div className="right-description-text">
-            <h3>Beskrivning</h3>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et
-            <h4>Utsläpp</h4>
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex xcepteur sint occaecat cupidatat non
-            <h4>Näringsvärden</h4>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur.
-          </div>
+          <article className="right-description-text">
+            <section>
+              <h3>Beskrivning</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et
+              </p>
+            </section>
+            <section>
+              <h4>Utsläpp</h4>
+              <p>
+                ad minim veniam, quis nostrud exercitation ullamco laboris nisi
+                ut aliquip ex xcepteur sint occaecat cupidatat non
+              </p>
+            </section>
+            <section>
+              <h4>Näringsvärden</h4>
+              <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur.
+              </p>
+            </section>
+          </article>
         </div>
 
         <div className="fruit-right">
