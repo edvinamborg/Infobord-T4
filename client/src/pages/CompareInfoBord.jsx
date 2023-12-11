@@ -21,73 +21,97 @@ const CompareInfoBord = ({ image }) => {
     }
   };
   return (
-    <div className="flex-template">
+    <>
       <div className="grid-template grid-template-left">
-        <div className="left-description">
-          <div className="left-description-text">
+        <article className="left-description">
+          <section>
             <h3>Beskrivning</h3>
-            {leftProduct.description}
+            {leftProduct.description
+              ? leftProduct.description
+              : `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et`}
+          </section>
+          <section>
             <h4>Utsläpp</h4>
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex xcepteur sint occaecat cupidatat non
+            <p>
+              ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex xcepteur sint occaecat cupidatat non
+            </p>
+          </section>
+          <section>
             <h4>Näringsvärden</h4>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur.
-          </div>
-        </div>
+            <p>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur.
+            </p>
+          </section>
+        </article>
 
-        <div className="fruit-left">
+        <figure className="fruit-left fruit-global">
           <img src={leftProduct.image} alt="" />
-        </div>
-        <div className="balloon-left">
+        </figure>
+
+        <figure className="balloon-left balloon-global">
           <DefaultImage />
-        </div>
-        <div className="rubrik-left">
+        </figure>
+
+        <div className="rubrik-left rubrik-global">
           <h1>{leftProduct.header ? leftProduct.header : "Header"}</h1>
         </div>
-        <div className="plate-left">
-          <div id="pizza">
-            <PlateImage />
-          </div>
-        </div>
+
+        <figure className="plate-left plate-global">
+          <PlateImage />
+        </figure>
+        <button onClick={getFruit} className="btn btn-primary">
+          Get Fruit
+        </button>
       </div>
 
       <div className="grid-template grid-template-right">
-        <div className="right-description">
-          <div className="right-description-text">
+        <article className="right-description">
+          <section>
             <h3>Beskrivning</h3>
             {leftProduct.description
               ? leftProduct.description
               : `		Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 						sed do eiusmod tempor incididunt ut labore et`}
+          </section>
+          <section>
             <h4>Utsläpp</h4>
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex xcepteur sint occaecat cupidatat non
+            <p>
+              ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex xcepteur sint occaecat cupidatat non
+            </p>
+          </section>
+          <section>
             <h4>Näringsvärden</h4>
-            Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur.
-          </div>
-        </div>
+            <p>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur.
+            </p>
+          </section>
+        </article>
 
-        <div className="fruit-right">
+        <figure className="fruit-right fruit-global">
           <Banana />
-        </div>
-        <div className="balloon-right">
+        </figure>
+
+        <figure className="balloon-right balloon-global">
           <DefaultImage />
-        </div>
-        <div className="rubrik-right">
+        </figure>
+
+        <div className="rubrik-right rubrik-global">
           <h1>Äpple</h1>
         </div>
-        <div className="plate-right">
-          <div id="pizza">
-            <PlateImage />
-          </div>
-        </div>
+
+        <figure className="plate-right plate-global">
+          <PlateImage />
+        </figure>
+        <button onClick={getFruit} className="btn btn-primary">
+          Get Fruit
+        </button>
       </div>
-      <button onClick={getFruit} className="btn btn-primary">
-        Get Fruit
-      </button>
-    </div>
+    </>
   );
 };
 
