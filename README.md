@@ -1,3 +1,3 @@
 # Infobord-T4
-
-We are making a project which compares the ammount of carbon dioxide released during the production/farming of different foods.
+## What is our project?
+We are making a Progressive Web Application (PWA) which will be able to compare different foods and the ammount of carbon dioxide it produses during production and shipping of the product. 
