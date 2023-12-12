@@ -56,7 +56,7 @@ article {
   padding: 1.5em;
 }
 
-.rubrik-global {
+h1 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,7 +71,6 @@ article {
   border-right: 0.15em orange solid;
 }
 
-.rubrik-left,
 .fruit-left,
 .balloon-left,
 .plate-left,

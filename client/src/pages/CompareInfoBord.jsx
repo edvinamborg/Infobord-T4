@@ -73,6 +73,9 @@ const CompareInfoBord = ({ image }) => {
 						{leftProduct.header ? leftProduct.header : "Header"}
 					</h1>
 				</div>
+				<h1 className="rubrik-left">
+					{leftProduct.header ? leftProduct.header : "Header"}
+				</h1>
 
 				<figure className="plate-left plate-global">
 					<PlateImage />
