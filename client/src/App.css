@@ -6,10 +6,6 @@ body {
 	grid-template-columns: 1fr 1fr;
 }
 
-h1 {
-	font-weight: bold;
-}
-
 .grid-template {
 	height: 100vh;
 	display: grid;
@@ -62,6 +58,7 @@ h1 {
 	align-items: center;
 	grid-row: 1;
 	height: 100%;
+	font-weight: bold;
 }
 
 /*vänstra sidan:*/
