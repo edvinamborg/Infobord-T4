@@ -55,13 +55,14 @@ const CompareInfoBord = ({ image }) => {
           <DefaultImage />
         </figure>
 
-        <div className="rubrik-left rubrik-global">
-          <h1>{leftProduct.header ? leftProduct.header : "Header"}</h1>
-        </div>
+        <h1 className="rubrik-left">
+          {leftProduct.header ? leftProduct.header : "Header"}
+        </h1>
 
         <figure className="plate-left plate-global">
           <PlateImage />
         </figure>
+
         <button onClick={getFruit} className="btn btn-primary">
           Get Fruit
         </button>
@@ -100,13 +101,12 @@ const CompareInfoBord = ({ image }) => {
           <DefaultImage />
         </figure>
 
-        <div className="rubrik-right rubrik-global">
-          <h1>Äpple</h1>
-        </div>
+        <h1>Äpple</h1>
 
         <figure className="plate-right plate-global">
           <PlateImage />
         </figure>
+
         <button onClick={getFruit} className="btn btn-primary">
           Get Fruit
         </button>
