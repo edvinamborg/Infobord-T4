@@ -56,7 +56,7 @@ article {
   padding: 1.5em;
 }
 
-h1 {
+.rubrik-global {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -97,6 +97,7 @@ h3 {
 .fruit-right,
 .balloon-right,
 .plate-right,
-.left-description {
+.left-description,
+.rubrik-right {
   grid-column: 1;
 }
