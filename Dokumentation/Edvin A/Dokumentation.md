@@ -12,3 +12,6 @@ Torsdag 23 November
 Först bestämde vi slutligen vilken wireframe vi ville köra på. Sedan sökte jag upp ballonger och matportioner som SVG:s. Jag testade runt lite i olika program att animera ballongen så att det ser ut som att den blåses upp, men vi kom snabbt fram till att vi ville göra det så enkelt som möjligt för oss just nu så jag sket i det. Jag skapade sedan en moodboard som ligger i bild-mappen. Sen testade jag och Albin om skanningen på plattan fungerade, vilket den gjorde. Vi såg också att plattan endast har ett micro-USB uttag. Så vi behöver en adapter från micro-USB till hdmi för att kunna koppla den till skärmen.
 
 
+Tisdag 12 December
+---
+Jag har nu under några lektioner ändrat HTML-koden så att den är semantisk. Jag har också lagt ihop och ändrat lite klasser i html så att jag sedan kunde städa CSS-koden och lyckades göra den mer än hälften så lång
