@@ -1,8 +1,9 @@
-.flex-template {
+body {
+	overflow: hidden;
+}
+#root {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	width: 100vw;
-	height: 100vh;
 }
 
 h1 {
@@ -18,24 +19,36 @@ h1 {
 	gap: 1em;
 }
 
-/*vänstra sidan:*/
-
-.grid-template-left {
-	grid-column: 1;
-	border-right: 0.15em orange solid;
+img,
+svg {
+	max-width: 100%;
 }
 
-.rubrik-left {
-	display: flex;
-	justify-content: center;
+article {
+	grid-row: 2 / 5;
+	font-size: 1.48em;
+	padding: 0.5em;
+	border-radius: 0.3em;
+	background-color: #e2eed9;
+}
+
+.plate-global {
+	grid-row: 4;
+	width: 28%;
+	margin: 0 auto;
+	display: grid;
 	align-items: center;
-	grid-row: 1;
-	grid-column: 2;
-	height: 100%;
 }
 
-.fruit-left {
-	grid-column: 2;
+.balloon-global {
+	grid-row: 3;
+	width: 33%;
+	margin: 0 auto;
+	display: grid;
+	align-items: center;
+}
+
+.fruit-global {
 	grid-row: 2;
 	width: 75%;
 	margin: 0 auto;
@@ -43,44 +56,34 @@ h1 {
 	padding: 1.5em;
 }
 
-.balloon-left {
-	grid-column: 2;
-	grid-row: 3;
-	width: 33%;
-	margin: 0 auto;
-}
-
-.plate-left {
-	grid-column: 2;
-	grid-row: 4;
-	width: 28%;
-	margin: 0 auto;
-}
-
-div.balloon-left {
-	display: grid;
+.rubrik-global {
+	display: flex;
+	justify-content: center;
 	align-items: center;
-}
-div.plate-left {
-	display: grid;
-	align-items: center;
+	grid-row: 1;
+	height: 100%;
 }
 
-.left-description {
-	background-color: #e2eed9;
+/*vänstra sidan:*/
+
+.grid-template-left {
 	grid-column: 1;
-	grid-row: 2 / 5;
-	font-size: 1.48em;
-	padding: 0.5em;
-	border-radius: 0.3em;
+	border-right: 0.15em orange solid;
 }
 
-.left-description-text h4 {
+.rubrik-left,
+.fruit-left,
+.balloon-left,
+.plate-left,
+.right-description {
+	grid-column: 2;
+}
+
+h4 {
 	margin: 1em 0 0 0;
 }
 
-.left-description-text h3 {
-	margin: 0;
+h3 {
 	text-align: center;
 }
 
@@ -91,6 +94,10 @@ div.plate-left {
 	border-left: 0.15em orange solid;
 }
 
+.fruit-right,
+.balloon-right,
+.plate-right,
+.left-description,
 .rubrik-right {
 	display: flex;
 	justify-content: center;

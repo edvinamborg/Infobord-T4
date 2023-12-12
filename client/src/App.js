@@ -33,11 +33,7 @@ function App() {
   };
 
   //TODO sanitize all user inputs
-  return (
-    <div>
-      <CompareInfoBord />
-    </div>
-  );
+  return <CompareInfoBord />;
 }
 
 export default App;
