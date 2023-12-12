@@ -68,11 +68,6 @@ const CompareInfoBord = ({ image }) => {
 					<DefaultImage />
 				</figure>
 
-				<div className="rubrik-left rubrik-global">
-					<h1>
-						{leftProduct.header ? leftProduct.header : "Header"}
-					</h1>
-				</div>
 				<h1 className="rubrik-left">
 					{leftProduct.header ? leftProduct.header : "Header"}
 				</h1>
