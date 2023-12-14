@@ -1,21 +1,19 @@
 import React from "react";
+import DefaultImage from "../assets/BalloonImage";
+import PlateImage from "../assets/plateLeft";
 
 const VisualDiagram = ({ product, position }) => {
-	return (
-		<>
-			<figure className="balloon-right balloon-global">
-				<BalloonImage />
-			</figure>
+  return (
+    <>
+      <figure className={`balloon-${position} balloon-global`}>
+        <DefaultImage />
+      </figure>
 
-			<div className="rubrik-right rubrik-global">
-				<h1>{rightProduct.header ? rightProduct.header : "Header"}</h1>
-			</div>
-
-			<figure className="plate-right plate-global">
-				<PlateImage />
-			</figure>
-		</>
-	);
+      <figure className={`plate-${position} plate-global`}>
+        <PlateImage />
+      </figure>
+    </>
+  );
 };
 
 export default VisualDiagram;
