@@ -8,7 +8,7 @@ using MongoDB_Test2.Controller;
 using MongoDB_Test2.Services;
 using MongoDB.Driver;
 
-namespace z;
+namespace MongoDB_Test2;
 public class Startup
 {
     public Startup(IConfiguration configuration)
@@ -22,7 +22,7 @@ public class Startup
     {
         string? connectionString = Environment.GetEnvironmentVariable("MONGODB_URI");
         services.AddSingleton<IMongoClient>(new MongoClient(connectionString));
-        services.AddScoped<FruitContext>(provider => FruitContext.Create(provider.GetRequiredService<IMongoClient>().GetDatabase("info_bord_test")));
+        services.AddScoped<FruitContext>(provider => FruitContext.Create(provider.GetRequiredService<IMongoClient>().GetDatabase("test")));
         services.AddScoped<FruitController>();
         services.AddScoped<FruitService>();
         services.AddControllers();

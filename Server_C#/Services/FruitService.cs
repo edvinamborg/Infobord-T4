@@ -28,9 +28,9 @@ public class FruitService
     }
     public void UpdateFruit(Fruit currentFruit, Fruit updatedFruit)
     {
-        currentFruit.name = updatedFruit.name;
+        currentFruit.header = updatedFruit.header;
         currentFruit.description = updatedFruit.description;
-        currentFruit.image_string = updatedFruit.image_string;
+        currentFruit.image = updatedFruit.image;
         context.SaveChanges();
     }
     public Fruit GetFruitById(ObjectId id)
