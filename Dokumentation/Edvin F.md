@@ -38,3 +38,7 @@ As practice, I decided to redo the project above but with less instructions from
 2023-12-11
 -------------
 This second project now looks more or less like I imagine the final API will look like. One can retrieve data from the database in the cluster in MongoDB, using HTTP GET with or without an ObjectId (with id to get a single object, without id to get all of them). One can also remove data using `[HttpDelete("{id}")]` or add data using HTTP POST. All of this can be done using a regular browser like Firefox, an API platform like Postman or the fetch method in JavaScript. I had a little trouble with CORS requests failing when I was trying to use fetch, but I eventually got that fixed by adding some CORS related code to "Startup.cs". Now, from what I can tell, all that remains to add is the HTTP PUT method so that users can update objects in the database.
+
+2023-12-13
+------------
+The HTTP PUT method has now been implemented. Similar to HTTP DELETE, HTTP PUT can only be used with an ObjectId that targets a specific document in the database. This means that one can't send an HTTP DELETE or HTTP PUT targeting the entire database, so one can't delete the entire thing all that easily (I think). I also added some `[Required(ErrorMessage = "X is required")]` to the variables in the Fruit model class, meaning any HTTP PUT method sent will be unsuccessful unless name, description and image_string are included in the body of the request. This prevents the aforementioned from being set to null if the request is incomplete.
