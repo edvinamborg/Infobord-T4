@@ -1,73 +1,73 @@
 body {
-  overflow: hidden;
+	overflow: hidden;
 }
 #root {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 }
 
 .grid-template {
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 0.1fr 1fr 1fr 1fr;
-  padding: 0.5em;
-  gap: 1em;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 0.1fr 1fr 1fr 1fr;
+	padding: 0.5em;
+	gap: 1em;
 }
 
 img,
 svg {
-  max-width: 100%;
+	max-width: 100%;
 }
 
 article {
-  grid-row: 2 / 5;
-  font-size: 1.48em;
-  padding: 0.5em;
-  border-radius: 0.3em;
-  background-color: #e2eed9;
-  max-width: 100%;
+	grid-row: 2 / 5;
+	font-size: 1.48em;
+	padding: 0.5em;
+	border-radius: 0.3em;
+	background-color: #e2eed9;
+	max-width: 100%;
 }
 
 .plate-global {
-  grid-row: 4;
-  width: 28%;
-  margin: 0 auto;
-  display: grid;
-  align-items: center;
+	grid-row: 4;
+	width: 28%;
+	margin: 0 auto;
+	display: grid;
+	align-items: center;
 }
 
 .balloon-global {
-  grid-row: 3;
-  width: 33%;
-  margin: 0 auto;
-  display: grid;
-  align-items: center;
+	grid-row: 3;
+	width: 33%;
+	margin: 0 auto;
+	display: grid;
+	align-items: center;
 }
 
 .fruit-global {
-  grid-row: 2;
-  width: 75%;
-  max-width: 75%;
-  margin: 0 auto;
-  border-radius: 50%;
-  padding: 1.5em;
+	grid-row: 2;
+	width: 75%;
+	max-width: 75%;
+	margin: 0 auto;
+	border-radius: 50%;
+	padding: 1.5em;
 }
 
 h1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  grid-row: 1;
-  height: 100%;
-  font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-row: 1;
+	height: 100%;
+	font-weight: bold;
 }
 
 /*vänstra sidan:*/
 
 .grid-template-left {
-  grid-column: 1;
-  border-right: 0.15em orange solid;
+	grid-column: 1;
+	border-right: 0.15em orange solid;
 }
 
 .fruit-left,
@@ -75,22 +75,22 @@ h1 {
 .plate-left,
 .right-description,
 .rubrik-left {
-  grid-column: 2;
+	grid-column: 2;
 }
 
 h4 {
-  margin: 1em 0 0 0;
+	margin: 1em 0 0 0;
 }
 
 h3 {
-  text-align: center;
+	text-align: center;
 }
 
 /*Högra sidan:*/
 
 .grid-template-right {
-  grid-column: 2;
-  border-left: 0.15em orange solid;
+	grid-column: 2;
+	border-left: 0.15em orange solid;
 }
 
 .fruit-right,
@@ -98,5 +98,5 @@ h3 {
 .plate-right,
 .left-description,
 .rubrik-right {
-  grid-column: 1;
+	grid-column: 1;
 }
