@@ -13,7 +13,7 @@ const CompareInfoBord = ({ image }) => {
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et";
   const getFruit = async (e) => {
     try {
-      const response = await fetch("http://localhost:5000/api/collection");
+      const response = await fetch("http://localhost:5501/api/fruit");
 
       if (!response.ok) throw new Error("Failed fetching products");
 
