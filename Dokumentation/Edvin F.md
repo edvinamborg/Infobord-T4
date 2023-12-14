@@ -1,4 +1,7 @@
-Måndag 20 November
+Journal
+=========
+
+2023-11-20
 -----------------------
 I continued working on learning web APIs in C#. I'm following a few different Microsoft tutorials on the subject, as listed below:
 * https://learn.microsoft.com/en-us/training/modules/build-web-api-aspnet-core/3-exercise-create-web-api
@@ -42,3 +45,7 @@ This second project now looks more or less like I imagine the final API will loo
 2023-12-13
 ------------
 The HTTP PUT method has now been implemented. Similar to HTTP DELETE, HTTP PUT can only be used with an ObjectId that targets a specific document in the database. This means that one can't send an HTTP DELETE or HTTP PUT targeting the entire database, so one can't delete the entire thing all that easily (I think). I also added some `[Required(ErrorMessage = "X is required")]` to the variables in the Fruit model class, meaning any HTTP PUT method sent will be unsuccessful unless name, description and image_string are included in the body of the request. This prevents the aforementioned from being set to null if the request is incomplete.
+
+2023-12-14
+--------------
+During the first lesson, I pushed the API I've been working on to this project on GitHub (at the time of writing, it's located under "Server_C#"). Although I intended for it to be a test project, I suppose it's good that it comes to use. After all, it does work. After a bit of tinkering, the API is functional in the whole project, so the React application can use fetch to get data about the fruits from the database on MongoDB using this API. Functional as it may be, I believe there is absolutely room for improvement. So, I'm thinking of continuing learning about APIs in C# and perhaps making a new, improved one, to replace the current one in the future. Anyhow, during the second lesson, I wrote a README.md file for "Server_C#" that contains documentation regarding the usage of the API. I tried to write the documentation so that anyone wanting to use the API (it's not exactly a public API, though) can use it, and I think it came out adequate. In hindsight, I'm now realizing that since this repository is public, meaning anyone can access it, storing the connection string to the MongoDB cluster as a static string in the code would mean giving everyone free access to said cluster. Good thing the connection string is stored in an environment variable, I suppose...
