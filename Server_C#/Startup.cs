@@ -22,7 +22,7 @@ public class Startup
     {
         string? connectionString = Environment.GetEnvironmentVariable("MONGODB_URI");
         services.AddSingleton<IMongoClient>(new MongoClient(connectionString));
-        services.AddScoped<FruitContext>(provider => FruitContext.Create(provider.GetRequiredService<IMongoClient>().GetDatabase("info_bord_test")));
+        services.AddScoped<FruitContext>(provider => FruitContext.Create(provider.GetRequiredService<IMongoClient>().GetDatabase("test")));
         services.AddScoped<FruitController>();
         services.AddScoped<FruitService>();
         services.AddControllers();

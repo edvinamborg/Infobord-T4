@@ -23,6 +23,6 @@ public class FruitContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        modelBuilder.Entity<Fruit>().ToCollection("fruits");
+        modelBuilder.Entity<Fruit>().ToCollection("posts");
     }
 }

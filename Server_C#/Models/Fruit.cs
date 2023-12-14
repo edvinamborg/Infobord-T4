@@ -8,9 +8,9 @@ public class Fruit
 {
     public ObjectId _id { get; set; }
     [Required(ErrorMessage = "Name is required")]
-    public string? name { get; set; }
+    public string? header { get; set; }
     [Required(ErrorMessage = "Description is required")]
     public string? description { get; set; }
     [Required(ErrorMessage = "Image string is required")]
-    public string? image_string { get; set; }
+    public string? image { get; set; }
 }
