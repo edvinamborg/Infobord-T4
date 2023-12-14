@@ -1,0 +1,64 @@
+API Documentation
+-------------------
+Here you will find information regarding the usage of the current API.
+## How to test the API
+1. Start the API. You can accomplish this by running `dotnet run` in the project root using e.g. PowerShell.
+2. Take note of the port that the API uses. The port number can be manipulated in Program.cs.
+3. Use a tool such as Postman, httprepl or a web browser to send HTTP methods to the URL documented in the terminal after running the command above. The current HTTP methods implemented are GET (with or without ObjectId), PUT, and DELETE. The latter two both require an ObjectId. An ObjectId that refers to an item can be found in the database on MongoDB. If the status message returned is 2xx, the method was successful. If not, check your method for any errors. These may include sending an incorrect JSON body for PUT requests, or inputting an ObjectId that is not found in the Database.
+## How to change port number used by the API
+1. Go to Program.cs in the project root.
+2. Locate the following code: `webBuilder.UseUrls("http://example:XXX");` in Program.cs.
+3. Replace XXX with the desired port number. Upon starting the API, it will use the inputted port number. Make to use a unique port number to avoid errors.
+## How to set the connection string
+1. Locate Startup.cs in the project root.
+2. Locate the following code: `string? connectionString = Environment.GetEnvironmentVariable("MONGODB_URI");`. Currently, the API uses the connection string specified in an environment variable called "MONGODB_URI". This is for security reasons. If you have not set the connection string as an environment variable, the API will not be able to access the database. You can set the connection string manually by replacing `Environment.GetEnvironmentVariable("MONGODB_URI")` with a static URI, but please only do so during development.
+3. If you need to find the connection string to the cluster on MongoDB, start by finding the cluster in question on MongoDB, click Connect, choose Drivers, and locate the connection string. Remember to replace <password> with the password of the user account on MongoDB.
+## How to specify the database to target
+1. Go to Startup.cs in the project root.
+2. Locate the following code: `services.AddScoped<FruitContext>(provider => FruitContext.Create(provider.GetRequiredService<IMongoClient>().GetDatabase("example_database")));`.
+3. Replace "example_database" with the desired database to target.
+## How to specify the collection in to target in the database
+1. Go to FruitContext.cs in the project root.
+2. Locate the following code: `modelBuilder.Entity<Fruit>().ToCollection("fruits");`.
+3. Replace "fruits" with the desired collection to target.
+## How to specify which values that are returned from the database
+1. Go to Fruit.cs in the folder Models under the project root.
+2. Add, remove or replace any of the data types and the variable names with your desired value along with a data type. Required values should be marked with a `[Required(ErrorMessage = "X is required")]` above them.
+## How to specify external URLs that can access the API using cross-origin requests.
+1. Go to Startup.cs in the project root.
+2. Locate the following code: `services.AddCors(options => 
+        {
+            options.AddPolicy("CorsPolicy",
+                builder => builder
+                    .WithOrigins("http://example:XXX", "http://example:XXX")
+                    .AllowAnyMethod()
+                    .AllowAnyHeader()
+                    .AllowCredentials());
+        });`.
+3. Replace "http://example:XXX" following `.WithOrigins` with the desired URL. You can also add more URLs by adding a comma in between, as seen in the example.
+
+# API usage examples
+### HTTP GET. This example uses Postman.
+1. Run `dotnet run` in e.g. PowerShell in the project root.
+2. Open Postman, choose new request and select the method GET.
+3. Type `http://localhost:5501/api/fruit/`, and press send. JSON data containing all the existing fruits and the data that they contain should be returned, along with a 200 OK status message.
+
+### HTTP GET. This example uses a browser (Firefox in this case).
+1. Run `dotnet run` in e.g. PowerShell in the project root.
+2. In the browser, go to the URL specified in the console. In my case, it's `http://localhost:5501/api/fruit/`.
+
+### HTTP POST. This example uses Postman. 
+1. Run `dotnet run` in e.g. PowerShell in the project root.
+2. Open Postman, choose new request and select the method POST.
+3. Under Headers, add a key "Content-Type". As its value, add "application/json". This allows you to send a JSON body with the request, and it will contain the key/value pairs.
+4. Under Body, add some JSON code. For exampel: `{
+    "name":"Simple fruit",
+    "description":"Sample_descriptioner_again",
+    "image_string": "sample_image_string"
+}`. These key/value pairs are dependant on the variabler found in Fruit.cs under the folder Model under the project root, so make sure you know what data to send with the request. Otherwise, you will likely receive an error status message.
+5. Type `http://localhost:5501/api/fruit/`, and press send. If the request is successful, you should receive a "204 No Content" status message. If the request fails, check your request to make sure that your JSON is valid and that you completed step 3.
+
+### HTTP DELETE. This example uses Postman.
+1. Run `dotnet run` in e.g. PowerShell in the project root.
+2. Open Postman, choose new request and select the method DELETE.
+3. Type `http://localhost:5501/api/fruit/[ObjectId]`. Replace [ObjectId] with the ObjectId of the item you want to target. Press send. If the request is successful, you should receive a "204 No Content" status message. If the request fails, it is likely that no item with the specified ObjectId exists.
