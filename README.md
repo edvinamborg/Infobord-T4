@@ -9,3 +9,5 @@ Our project compares different foods and displays it in a way that makes it simp
 ## How we picked our Frontend
 
 ## How we picked our Backend
+
+## Tips and insperational quotes from ut to you :) 
