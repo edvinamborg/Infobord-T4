@@ -8,3 +8,7 @@ Idag har jag samlat data om Fett- och Fiberkällor och samlat informationen i et
 Torsdag 30 november 2023
 ---------------
 Klar med samling av data
+
+Måndag 18 december 2023
+--------------
+fortsatt arbeta med README.md filen
