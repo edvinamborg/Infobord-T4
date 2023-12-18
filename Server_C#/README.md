@@ -1,6 +1,6 @@
 API Documentation
 =====================
-Here you will find information regarding the usage of the current API.
+Here you will find information regarding the usage of the current API. Any mention of the "project root" refers to the project root of the API; the folder "Server_C#".
 ### How to test the API
 1. Start the API. You can accomplish this by running `dotnet run` in the project root using e.g. PowerShell.
 2. Take note of the port that the API uses. The port number can be manipulated in Program.cs. For more details, go to "How to change port number used by the API".
