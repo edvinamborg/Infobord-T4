@@ -14,5 +14,7 @@ ex: we used HTML because it is widely used and works on almost all browsers.
 ## How we picked our Backend
 ### What did we use and for what?
 ### WHy did we use it?
-## Tips and inspirational quotes from ut to you :) 
-A message that will give the next TE4 students some help to get started with learning and also give them an idea of what they will need to learn to complete this project.
+## Tips and inspirational quotes from us to you :) 
+A message that will give the next TE4 students some help to get started with learning and also give them an idea of what they will need to learn to complete this project:
+We believe in you... I guess
+
