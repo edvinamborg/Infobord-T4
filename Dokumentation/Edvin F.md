@@ -64,4 +64,8 @@ After the pull request was closed, the branch on which I made the changes to the
 
 2023-12-23
 --------------
-During the holiday, I'll try to learn more about APIs and related subjects. I've another unrelated project in the works that I'm working on that will implement an API, but with a SQL database instead of a MongoDB one. After the holiday, I'll see if I can redo the current API and make it better, with additional security measures and what not.
+During the holiday, I'll try to learn more about APIs and related subjects. I've another unrelated project in the works that will implement an API, but with a SQL database instead of a MongoDB one. After the holiday, I'll see if I can redo the current API and make it better, with additional security measures and what not.
+
+2023-12-24
+------------
+I've run into an issue when trying to implement usage of the database context. When trying to use the context to get some items from the SQL database, I'm getting an error message stating 'only the invariant culture is supported in globalization-invariant mode'. I think I sort of know what causes the issue, but it's been somewhat of a hassle to debug. Anyhow, the other parts of the API are coming along nicely, so there's that. I'll see if I can get it fixed tomorrow, with this day being a little more 'eventful' than some others...
