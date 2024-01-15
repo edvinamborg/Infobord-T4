@@ -69,3 +69,7 @@ During the holiday, I'll try to learn more about APIs and related subjects. I've
 2023-12-24
 ------------
 I've run into an issue when trying to implement usage of the database context. When trying to use the context to get some items from the SQL database, I'm getting an error message stating 'only the invariant culture is supported in globalization-invariant mode'. I think I sort of know what causes the issue, but it's been somewhat of a hassle to debug. Anyhow, the other parts of the API are coming along nicely, so there's that. I'll see if I can get it fixed tomorrow, with this day being a little more 'eventful' than some others...
+
+2024-01-15
+------------
+Any problems I ran into earlier were fixed some time ago. Now, I've updated the current API in this project as well. I decided not to completely redo it as I saw no reason to - it works as is and I merely needed to change a few things. I made these changes on a new branch of my fork of this repository, and I then opened a pull request and merged the branches. As far as I know, it all went well.
