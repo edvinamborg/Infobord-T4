@@ -60,7 +60,7 @@ API usage examples
 1. Run `dotnet run` in e.g. PowerShell in the project root of the API.
 2. Open Postman, choose new request and select the method POST.
 3. Under Headers, add a key "Content-Type". As its value, add "application/json". This allows you to send a JSON body with the request, and it will contain the key/value pairs.
-4. Under Body, add some JSON code. For exampel: `{
+4. Under Body, add some JSON code. For example: `{
     "name":"Simple fruit",
     "description":"Sample_descriptioner_again",
     "image_string": "sample_image_string"
@@ -73,7 +73,7 @@ API usage examples
 2. Open Postman, choose new request, and select the method PUT.
 3. Type in the URL and port number of the API. This is documented in the console after running `dotnet run`. In my case, it's: `http://localhost:5501/api/fruit/[ObjectId]`. Replace [ObjectId] with the ObjectId of the item you want to target.
 4. Under Headers, add a key "Content-Type". As its value, add "application/json". This allows you to send a JSON body with the request, and it will contain the key/value pairs.
-5. Under Body, add some JSON code. For exampel: `{
+5. Under Body, add some JSON code. For example: `{
     "name":"Simple fruit",
     "description":"Sample_descriptioner_again",
     "image_string": "sample_image_string"

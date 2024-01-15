@@ -1,10 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Storage;
-using MongoDB.Driver;
-using MongoDB_Test2.Data;
 using MongoDB_Test2.Models;
 using MongoDB_Test2.Services;
-using System.Runtime.Versioning;
 using MongoDB.Bson;
 
 namespace MongoDB_Test2.Controller
@@ -20,11 +16,13 @@ namespace MongoDB_Test2.Controller
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Fruit>> GetAll()
+        public ActionResult<List<Fruit>> GetAll()
         {
             try 
             {
-                return service.GetAll();
+                List<Fruit> fruits = service.GetAll();
+
+                return fruits == null ? NotFound("No fruits were found.") : Ok(fruits);
             }
             catch (Exception ex)
             {         
@@ -36,7 +34,9 @@ namespace MongoDB_Test2.Controller
         {
             try 
             {
-                return service.GetFruitById(id);
+                Fruit fruit = service.GetFruitById(id);
+
+                return fruit == null ? NotFound("Fruit not found.") : Ok(fruit);
             }
             catch (Exception ex) 
             {
@@ -44,7 +44,7 @@ namespace MongoDB_Test2.Controller
             }
         }
         [HttpDelete("{id}")]
-        public IActionResult RemoveFruit(ObjectId id)
+        public ActionResult RemoveFruit(ObjectId id)
         {
             try 
             {
@@ -65,7 +65,7 @@ namespace MongoDB_Test2.Controller
             }
         }
         [HttpPut("{id}")]
-        public IActionResult UpdateFruit(ObjectId id, [FromBody] Fruit updatedFruit)
+        public ActionResult UpdateFruit(ObjectId id, [FromBody] Fruit updatedFruit)
         {
             if (!ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace MongoDB_Test2.Controller
             }
         }
         [HttpPost]
-        public IActionResult CreateFruit([FromBody] Fruit fruit) 
+        public ActionResult CreateFruit([FromBody] Fruit fruit) 
         {
             if (!ModelState.IsValid) 
             {
