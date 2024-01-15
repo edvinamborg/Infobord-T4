@@ -3,7 +3,6 @@ using MongoDB.Driver;
 using MongoDB.EntityFrameworkCore.Extensions;
 using MongoDB_Test2.Models;
 
-
 namespace MongoDB_Test2.Data;
 
 public class FruitContext : DbContext

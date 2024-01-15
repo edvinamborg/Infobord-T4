@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using MongoDB_Test2.Data;
 using MongoDB_Test2.Models;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +13,7 @@ public class FruitService
         this.context = context;
     }
 
-    public ActionResult<IEnumerable<Fruit>> GetAll()
+    public List<Fruit> GetAll()
     {
         return context.Fruits
             .AsNoTracking()
