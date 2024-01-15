@@ -4,8 +4,7 @@ The HTML you see on the website is written in jsx which is React's way of render
 
 ### Creation of the Frontend
 The project was created with the command:
-´´´
-npx create-react-app my-app --template cra-template-pwa
+´´´ npx create-react-app my-app --template cra-template-pwa 
 ´´´
 
 ### DBHandler
