@@ -7,6 +7,9 @@ The project was created with the command:
 ```bash
 npx create-react-app my-app --template cra-template-pwa
 ```
+Note that React has to be installed globally to use the npx command.
+
+The project has a Index.js that takes the HTML element with the id of root and renders the app component in it. In App.js only the CompareInfoBord component is being rendered. CompareInfoBord is a composite component made from multiple other jsx component as well as a couple lines of jsx html.
 
 ### DBHandler
 In the ./client/utils you will find a DBhandler javascript class that is used create a connection to the database. All The methods of the class are made to handle the fetch requests to the C# backend API in a safe way. It provides error handleing for all routes of the API if it happens that the fetch attempt fails. Any more routes created in the C# backend should be implemented in DBHandler with the same amount of error handling.
