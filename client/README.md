@@ -4,8 +4,9 @@ The HTML you see on the website is written in jsx which is React's way of render
 
 ### Creation of the Frontend
 The project was created with the command:
-´´´ npx create-react-app my-app --template cra-template-pwa 
-´´´
+```bash
+npx create-react-app my-app --template cra-template-pwa
+```
 
 ### DBHandler
 In the ./client/utils you will find a DBhandler javascript class that is used create a connection to the database. All The methods of the class are made to handle the fetch requests to the C# backend API in a safe way. It provides error handleing for all routes of the API if it happens that the fetch attempt fails. Any more routes created in the C# backend should be implemented in DBHandler with the same amount of error handling.
