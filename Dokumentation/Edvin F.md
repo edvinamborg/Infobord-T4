@@ -73,3 +73,7 @@ I've run into an issue when trying to implement usage of the database context. W
 2024-01-15
 ------------
 Any problems I ran into earlier were fixed some time ago. Now, I've updated the current API in this project as well. I decided not to completely redo it as I saw no reason to - it works as is and I merely needed to change a few things. I made these changes on a new branch of my fork of this repository, and I then opened a pull request and merged the branches. As far as I know, it all went well.
+
+2024-01-18
+-----------
+During the previous lesson (2024-01-16), I was working on the backend documentation, the new README.md file (I renamed the previous one to 'API_Documentation', since it only contains information regarding the usage of the API). I finished the document today. It contains information that anyone visiting the repository may find interesting, such as tools used (come to think of it, I think there's already a section for that in 'API_Documentation', so I may want to fix that), VSCodium extensions needed and some other things.
