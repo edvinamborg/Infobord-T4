@@ -1,9 +1,9 @@
 Backend Documentation
-===================
+======================
 This document contains information regarding the API found here, under 'Server_C#'. This information involves technologies used, tools utilized, packages implemented, and project details.
 
 Prerequisites for using this API
----------------------------------
+----------------------------------
 This API depends on a few external prerequisites that should be taken into account if you intend to test it for yourself. I'll list these below. Any code described is located in 'Startup.cs'.
 * MongoDB login. The API connects to a cloud-based database in a cluster created using MongoDB. To connect to it using this API, you'll need login details and a connection string. The connection string uses the login details and can be found under 'Connect', under 'Database'.
 * Environment variables. The connection string mentioned above can either be hard-coded or extracted using an environment variable, as this API does. For security reasons, I recommend using environment variables for connection strings and similar whenever the code is publicly available. To create an environment variable, search 'edit the system environment variables' (that is, if your system language is set to English) and click 'Environment variables'. You can then add one or several as you wish. This API uses one called 'MONGODB_URI', and it can be found in the `ConfigureServices` method in 'Startup.cs': `string? connectionString = Environment.GetEnvironmentVariable("MONGODB_URI");`.
@@ -20,7 +20,7 @@ services.AddCors(options =>
             .AllowCredentials());
 });
 ```
-The locations from which cross-origin HTTP requests are allowed are currently http://localhost:5500 and http://localhost:3000. All you need to do to fix the error you might encounter is to add the desired location to the `.WithOrigins` method. To set all locations as acceptable, replace the locations with an asterisk (*), like this: `.WithOrigins(*)`. I would not recommend this outside of development, though. Also, the following code is needed in the `Configure` method: `app.UseCors("CorsPolicy");`.
+The locations from which cross-origin HTTP requests are allowed are currently http://localhost:5500 and http://localhost:3000. All you need to do to fix the error you might encounter is to add the desired location to the `.WithOrigins` method. To set all locations as acceptable, replace the locations with an asterisk (*), like this: `.WithOrigins(*)`. I would not recommend this outside of development, though. Also, the following code is needed in the `Configure` method to fix the CORS problems: `app.UseCors("CorsPolicy");`.
 
 Initial creation of the project
 ---------------------------------
@@ -38,3 +38,18 @@ This is a package used for integrating Entity Framework Core with MongoDB. In th
 
 Tools used for building and testing the API
 ----------------------------------------------
+#### VSCodium
+This is the code editor I used for building the API. Although I recommend Visual Studio 2022 instead for building a .NET web API, you can do it in VSCodium as I did. Should you do this, there are a few VSCodium extensions I would recommend at a bare minimum. There are as follow:
+1. C#
+2. Live Server
+
+Depending on your preferred workspace, I could also recommend 'PowerShell'. Myself, I would rather manually open a PowerShell window outside of VSCodium, but do as you will. As a bonus, if you build a similar API to this one, you'll want to add the 'MongoDB for VS Code' extension as well. This is not applicable if the API you're building does not use a MongoDB database, of course. Keep in mind that these extensions were used only for building the API, you may want some other extensions if you're developing the frontend.
+
+#### PowerShell
+A terminal, similar to many others. You do not need to use PowerShell, but it is one I can recommend if you have no other terminals in mind. You'll need a terminal to install packages, start the project and so on (specifics vary between VSCodium and Visual Studio).
+
+#### Postman
+This is the tool I used the most when testing the API. Sending and receiving responses is a lot more lenient with a tool such as Postman, as opposed to using only a browser. It's easy to understand and use, and it's easy to debug. For more specifics on how to use Postman with this project, read 'API_Documentation.md'.
+
+#### MongoDB
+This is the cloud-based database provider we decided to work with. Learning how to work with it took a little bit, but using it afterwards is easy. If you want to learn how to connect to a MongoDB Atlas Cluster (and by extension, a database), I'd recommend the following link: https://www.mongodb.com/docs/entity-framework/current/quick-start/. If not, or if your project does not require a MongoDB database, you can of course explore other options. If you do work with MongoDB, you may or may not run into some issues with connecting to the database even if your connection string is correct. I ran into this issue, and it's because the port that MongoDB uses is blocked by default. You'll have to find another way around this, the way I did was to create a hotspot from my phone and go through there. Regardless of your approach, keep in mind to add your IP address to the list of allowed IP addresses on the MongoDB database (that is, if you're not already allowing all IP addresses, which is also a valid approach).
