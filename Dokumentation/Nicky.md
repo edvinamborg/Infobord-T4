@@ -4,3 +4,4 @@ torsdag 18 november fixade proteinkällorna så att den vart klar
 måndag 22 november jag ska fixa read me med leo
 tisdag 23 november fixade read me 
 torsdag 24 november fixade read me så den blev klar
+måndag 1 december hade måndags möte försökte hitta något att göra
