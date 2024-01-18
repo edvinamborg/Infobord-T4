@@ -30,26 +30,26 @@ Technologies and packages
 ----------------------------
 This API contains two package references: `AttributeRouting.Core.Web` and `MongoDB.EntityFrameworkCore`. 
 
-#### AttributeRouting.Core.Web
+### AttributeRouting.Core.Web
 This is a package used for building modern web applications. It contains features such as routing, dependency injections and a Model-View-Controller architecture. These are very useful for building a web API. With a using directive (`using Microsoft.AspNetCore.Mvc;`), you can, for example, create routes for HTTP GET in a controller class. The package should be included in the project by default if you create it using a template as I suggested earlier. You can find the package reference and its version in the .csproj file. In this API, it looks like this: `<PackageReference Include="AttributeRouting.Core.Web" Version="3.5.6" />`.
 
-#### MongoDB.EntityFrameworkCore
+### MongoDB.EntityFrameworkCore
 This is a package used for integrating Entity Framework Core with MongoDB. In the context of this API, it means that the API uses EF Core to interact with the database, and MongoDB as the backend database. The API uses libraries such as `MongoDB.Driver` and `MondoDB.Bson`. You can install these two separately or `MongoDB.EntityFrameworkCore`, as is the case in this API. The exact usage cases vary slightly, mostly based on how you're interacting with your MongoDB database. You can find the `MongoDB.EntityFrameworkCore` package reference and its version in the .csproj file. In this API, it looks like this: `<PackageReference Include="MongoDB.EntityFrameworkCore" Version="7.0.0-preview.1" />`.
 
 Tools used for building and testing the API
 ----------------------------------------------
-#### VSCodium
-This is the code editor I used for building the API. Although I recommend Visual Studio 2022 instead for building a .NET web API, you can do it in VSCodium as I did. Should you do this, there are a few VSCodium extensions I would recommend at a bare minimum. There are as follow:
+### VSCodium
+This is the code editor I used for building the API. Although I recommend Visual Studio 2022 instead for building a .NET web API, you can do it in VSCodium as I did. Do keep in mind that Visual Studio provides better debugging, where you can more easily place breakpoints to manually step through the code and determine where any potential issues may be located. Regardless, should you use VSCodium, there are a few extensions I would recommend at a bare minimum. There are as follow:
 1. C#
 2. Live Server
 
 Depending on your preferred workspace, I could also recommend 'PowerShell'. Myself, I would rather manually open a PowerShell window outside of VSCodium, but do as you will. As a bonus, if you build a similar API to this one, you'll want to add the 'MongoDB for VS Code' extension as well. This is not applicable if the API you're building does not use a MongoDB database, of course. Keep in mind that these extensions were used only for building the API, you may want some other extensions if you're developing the frontend.
 
-#### PowerShell
+### PowerShell
 A terminal, similar to many others. You do not need to use PowerShell, but it is one I can recommend if you have no other terminals in mind. You'll need a terminal to install packages, start the project and so on (specifics vary between VSCodium and Visual Studio).
 
-#### Postman
+### Postman
 This is the tool I used the most when testing the API. Sending and receiving responses is a lot more lenient with a tool such as Postman, as opposed to using only a browser. It's easy to understand and use, and it's easy to debug. For more specifics on how to use Postman with this project, read 'API_Documentation.md'.
 
-#### MongoDB
+### MongoDB
 This is the cloud-based database provider we decided to work with. Learning how to work with it took a little bit, but using it afterwards is easy. If you want to learn how to connect to a MongoDB Atlas Cluster (and by extension, a database), I'd recommend the following link: https://www.mongodb.com/docs/entity-framework/current/quick-start/. If not, or if your project does not require a MongoDB database, you can of course explore other options. If you do work with MongoDB, you may or may not run into some issues with connecting to the database even if your connection string is correct. I ran into this issue, and it's because the port that MongoDB uses is blocked by default. You'll have to find another way around this, the way I did was to create a hotspot from my phone and go through there. Regardless of your approach, keep in mind to add your IP address to the list of allowed IP addresses on the MongoDB database (that is, if you're not already allowing all IP addresses, which is also a valid approach).
