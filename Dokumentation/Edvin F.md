@@ -77,3 +77,5 @@ Any problems I ran into earlier were fixed some time ago. Now, I've updated the 
 2024-01-18
 -----------
 During the previous lesson (2024-01-16), I was working on the backend documentation, the new README.md file (I renamed the previous one to 'API_Documentation', since it only contains information regarding the usage of the API). I finished the document today. It contains information that anyone visiting the repository may find interesting, such as tools used (come to think of it, I think there's already a section for that in 'API_Documentation', so I may want to fix that), VSCodium extensions needed and some other things.
+
+Update: there was no section for that in 'API_Documentation'. Also, the Server_C#/README.md document contains information about prerequisites, packages implemented and so on. A little more than I mentioned above, in other words.
