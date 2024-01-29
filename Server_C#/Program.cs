@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Net.NetworkInformation;
 using System.Net.Sockets;
 
 namespace MongoDB_Test2
@@ -16,18 +17,29 @@ namespace MongoDB_Test2
                 {
                     webBuilder.UseStartup<Startup>();
 
-                    var host = Dns.GetHostEntry(Dns.GetHostName());
+
                     string ipAddress = "";
 
-                    foreach (var ip in host.AddressList)
-                    {
-                        if (ip.AddressFamily == AddressFamily.InterNetwork)
-                        {
-                            ipAddress = ip.ToString();
-                        }
-                    }
+                    NetworkInterface[] networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
 
-                    webBuilder.UseUrls($"http://{ipAddress}");
+                    foreach (NetworkInterface networkInterface in networkInterfaces)
+                    {
+                        if (networkInterface.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 &&
+                            networkInterface.OperationalStatus == OperationalStatus.Up)
+                        {
+                            IPInterfaceProperties ipProperties = networkInterface.GetIPProperties();
+
+                            foreach (UnicastIPAddressInformation ipAddressInfo in ipProperties.UnicastAddresses)
+                            {
+                                if (ipAddressInfo.Address.AddressFamily == AddressFamily.InterNetwork)
+                                {
+                                    ipAddress = ipAddressInfo.Address.ToString();
+                                }
+                            }
+                        }
+
+                        webBuilder.UseUrls($"http://{ipAddress}");
+                    }
                 });
     }
 }
