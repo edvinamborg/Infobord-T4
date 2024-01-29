@@ -1,8 +1,3 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using MongoDB_Test2.Data;
 using MongoDB_Test2.Controller;
 using MongoDB_Test2.Services;
@@ -26,7 +21,7 @@ public class Startup
         services.AddScoped<FruitController>();
         services.AddScoped<FruitService>();
         services.AddControllers();
-        services.AddCors(options => 
+        services.AddCors(options =>
         {
             options.AddPolicy("CorsPolicy",
                 builder => builder

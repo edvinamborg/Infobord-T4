@@ -12,36 +12,51 @@ public class FruitService
     {
         this.context = context;
     }
-
-    public List<Fruit> GetAll()
+    public Task<List<Fruit>> GetAll()
     {
-        return context.Fruits
+        return Task.FromResult(context.Fruits
             .AsNoTracking()
-            .ToList();
+            .ToList());
     }
+    public Task<Fruit> GetFruitById(ObjectId objectId)
+    {
+        return Task.FromResult(context.Fruits
+            .SingleOrDefault(f => f._id == objectId));
+    }
+    public Task<bool> RemoveFruit(ObjectId objectId)
+    {
+        Fruit fruit = GetFruitById(objectId).Result;
 
-    public void RemoveFruit(Fruit fruit)
-    {    
+        if (fruit == null)
+        {
+            return Task.FromResult(false);
+        }
+
         context.Fruits.Remove(fruit);
         context.SaveChanges();
+
+        return Task.FromResult(true);
     }
-    public void UpdateFruit(Fruit currentFruit, Fruit updatedFruit)
+    public Task<bool> UpdateFruit(ObjectId objectId, Fruit updatedFruit)
     {
+        Fruit currentFruit = GetFruitById(objectId).Result;
+
+        if (currentFruit == null)
+        {
+            return Task.FromResult(false);
+        }
+
         currentFruit.header = updatedFruit.header;
         currentFruit.description = updatedFruit.description;
         currentFruit.image = updatedFruit.image;
         context.SaveChanges();
-    }
-    public Fruit GetFruitById(ObjectId id)
-    {
-        return context.Fruits
-            .SingleOrDefault(f => f._id == id);
-    }
 
-    public Fruit CreateFruit(Fruit fruit)
+        return Task.FromResult(true);
+    }
+    public Task<Fruit> CreateFruit(Fruit fruit)
     {
         context.Add(fruit);
         context.SaveChanges();
-        return fruit;
+        return Task.FromResult(fruit);
     }
 }
