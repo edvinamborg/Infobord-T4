@@ -15,7 +15,8 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
-        string? connectionString = Environment.GetEnvironmentVariable("MONGODB_URI");
+        string? connectionString = "mongodb+srv://BiffJonas:Infobord@clustertest.ufs5xht.mongodb.net/?retryWrites=true&w=majority";
+
         services.AddSingleton<IMongoClient>(new MongoClient(connectionString));
         services.AddScoped<FruitContext>(provider => FruitContext.Create(provider.GetRequiredService<IMongoClient>().GetDatabase("test")));
         services.AddScoped<FruitController>();
