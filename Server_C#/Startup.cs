@@ -20,9 +20,10 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
-        string? connectionString = Environment.GetEnvironmentVariable("MONGODB_URI");
+        string? connectionString = "mongodb+srv://BiffJonas:Infobord@clustertest.ufs5xht.mongodb.net/?retryWrites=true&w=majority";
+
         services.AddSingleton<IMongoClient>(new MongoClient(connectionString));
-        services.AddScoped<FruitContext>(provider => FruitContext.Create(provider.GetRequiredService<IMongoClient>().GetDatabase("info_bord_test")));
+        services.AddScoped<FruitContext>(provider => FruitContext.Create(provider.GetRequiredService<IMongoClient>().GetDatabase("ClusterTest")));
         services.AddScoped<FruitController>();
         services.AddScoped<FruitService>();
         services.AddControllers();
