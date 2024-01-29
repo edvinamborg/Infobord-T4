@@ -3,7 +3,6 @@ using MongoDB.Driver;
 using MongoDB.EntityFrameworkCore.Extensions;
 using MongoDB_Test2.Models;
 
-
 namespace MongoDB_Test2.Data;
 
 public class FruitContext : DbContext
@@ -23,6 +22,6 @@ public class FruitContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
-        modelBuilder.Entity<Fruit>().ToCollection("fruits");
+        modelBuilder.Entity<Fruit>().ToCollection("posts");
     }
 }

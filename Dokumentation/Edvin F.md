@@ -1,4 +1,7 @@
-Måndag 20 November
+Journal
+=========
+
+2023-11-20
 -----------------------
 I continued working on learning web APIs in C#. I'm following a few different Microsoft tutorials on the subject, as listed below:
 * https://learn.microsoft.com/en-us/training/modules/build-web-api-aspnet-core/3-exercise-create-web-api
@@ -42,3 +45,37 @@ This second project now looks more or less like I imagine the final API will loo
 2023-12-13
 ------------
 The HTTP PUT method has now been implemented. Similar to HTTP DELETE, HTTP PUT can only be used with an ObjectId that targets a specific document in the database. This means that one can't send an HTTP DELETE or HTTP PUT targeting the entire database, so one can't delete the entire thing all that easily (I think). I also added some `[Required(ErrorMessage = "X is required")]` to the variables in the Fruit model class, meaning any HTTP PUT method sent will be unsuccessful unless name, description and image_string are included in the body of the request. This prevents the aforementioned from being set to null if the request is incomplete.
+
+2023-12-14
+--------------
+During the first lesson, I pushed the API I've been working on to this project on GitHub (at the time of writing, it's located under "Server_C#"). Although I intended for it to be a test project, I suppose it's good that it comes to use. After all, it does work. After a bit of tinkering, the API is functional in the whole project, so the React application can use fetch to get data about the fruits from the database on MongoDB using this API. Functional as it may be, I believe there is absolutely room for improvement. So, I'm thinking of continuing learning about APIs in C# and perhaps making a new, improved one, to replace the current one in the future. Anyhow, during the second lesson, I wrote a README.md file for "Server_C#" that contains documentation regarding the usage of the API. I tried to write the documentation so that anyone wanting to use the API (it's not exactly a public API, though) can use it, and I think it came out adequate. In hindsight, I'm now realizing that since this repository is public, meaning anyone can access it, storing the connection string to the MongoDB cluster as a static string in the code would mean giving everyone free access to said cluster. Good thing the connection string is stored in an environment variable, I suppose...
+
+2023-12-15
+-------------
+I spent the lesson learning some more about Git. I'm mostly documenting this because I need to make sure I know how to fetch changes from this repository and merge them into the fork I made, since I'm mainly learning how forks work. At the time of writing, I've made a fork that is identical to this repository, and I've cloned it to a local folder. After I commit this update to "Edvin F.md", I shall try fetching and merging the change into my local repository and see what happens. Then, I'll create a new branch, update the README.md file, and commit the changes. If all goes well, I'll push the changes to the new branch of the fork and submit a pull request.
+
+The pull request worked and looks good, I think? From what I can tell, the only changes in the pull request that would be relevant for this repository are the changes I made to the README.md file in the project root, which is what I was hoping for. I did, as I wrote above, commit to this repository after forking it to see what would happen, and fetching and merging the changes seems to have worked perfectly. I'll wait for the others to see the pull request, and let them accept or decline my changes.
+
+2023-12-19
+-------------
+Since I submitted my pull request, some commits were made, changing the README.md file. This meant that the pull request caused a merge conflict. Johannes approved the pull request though, so all I had to do was fix the conflict and merge the commits. It was a relatively simple process that was surprisingly fun for what it was, and I learned from it. So, I started by running `git fetch upstream`, and then `git merge upstream/main`. This fetched all changes that had been made this repository since I last fetched them, including the ones to the README.md file, and integrated them into my local fork of the project. This, as expected, also caused a merge conflict. I then solved it by manually editing the file to contain the contents of both commits. I then committed these changes to my fork on GitHub, and just like that, no more merge conflict. I could safely merge the commits into the final README.md file.
+
+After the pull request was closed, the branch on which I made the changes to the README.md file was no longer necessary (the branch was of the fork, not of this repository). I had a little trouble deleting this branch, since it was not deleted after I deleted the branch locally and pushed the changes to the fork. I did get it deleted by removing it through GitHub, but then it was still (sort of) present locally. Running `git branch -a` still showed the branch as being present on GitHub - I hadn't fetched any changes (such as removing the branch on GitHub), so my local repository was kind of outdated, or something of the like. Anyhow I also ran `git fetch --prune`, which fixed the issue. The branch now is no more, locally and not.
+
+2023-12-23
+--------------
+During the holiday, I'll try to learn more about APIs and related subjects. I've another unrelated project in the works that will implement an API, but with a SQL database instead of a MongoDB one. After the holiday, I'll see if I can redo the current API and make it better, with additional security measures and what not.
+
+2023-12-24
+------------
+I've run into an issue when trying to implement usage of the database context. When trying to use the context to get some items from the SQL database, I'm getting an error message stating 'only the invariant culture is supported in globalization-invariant mode'. I think I sort of know what causes the issue, but it's been somewhat of a hassle to debug. Anyhow, the other parts of the API are coming along nicely, so there's that. I'll see if I can get it fixed tomorrow, with this day being a little more 'eventful' than some others...
+
+2024-01-15
+------------
+Any problems I ran into earlier were fixed some time ago. Now, I've updated the current API in this project as well. I decided not to completely redo it as I saw no reason to - it works as is and I merely needed to change a few things. I made these changes on a new branch of my fork of this repository, and I then opened a pull request and merged the branches. As far as I know, it all went well.
+
+2024-01-18
+-----------
+During the previous lesson (2024-01-16), I was working on the backend documentation, the new README.md file (I renamed the previous one to 'API_Documentation', since it only contains information regarding the usage of the API). I finished the document today. It contains information that anyone visiting the repository may find interesting, such as tools used (come to think of it, I think there's already a section for that in 'API_Documentation', so I may want to fix that), VSCodium extensions needed and some other things.
+
+Update: there was no section for that in 'API_Documentation'. Also, the Server_C#/README.md document contains information about prerequisites, packages implemented and so on. A little more than I mentioned above, in other words.
