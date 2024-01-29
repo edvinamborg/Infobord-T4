@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
-using MongoDB_Test2;
+﻿using System.Net;
+using System.Net.Sockets;
 
 namespace MongoDB_Test2
 {
@@ -16,7 +15,19 @@ namespace MongoDB_Test2
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    webBuilder.UseUrls("http://localhost:5501");
+
+                    var host = Dns.GetHostEntry(Dns.GetHostName());
+                    string ipAddress = "";
+
+                    foreach (var ip in host.AddressList)
+                    {
+                        if (ip.AddressFamily == AddressFamily.InterNetwork)
+                        {
+                            ipAddress = ip.ToString();
+                        }
+                    }
+
+                    webBuilder.UseUrls($"http://{ipAddress}");
                 });
     }
 }

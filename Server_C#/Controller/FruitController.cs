@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using MongoDB_Test2.Models;
-using MongoDB_Test2.Services;
 using MongoDB.Bson;
 using MediatR;
 using MongoDB_Test2.Handlers.Fruits;
