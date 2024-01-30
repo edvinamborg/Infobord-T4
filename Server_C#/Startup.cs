@@ -1,12 +1,8 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using MongoDB_Test2.Data;
 using MongoDB_Test2.Controller;
 using MongoDB_Test2.Services;
 using MongoDB.Driver;
+using System.Reflection;
 
 namespace MongoDB_Test2;
 public class Startup
@@ -19,15 +15,18 @@ public class Startup
     public IConfiguration Configuration { get; }
 
     public void ConfigureServices(IServiceCollection services)
-    {
-        string? connectionString = "mongodb+srv://BiffJonas:Infobord@clustertest.ufs5xht.mongodb.net/?retryWrites=true&w=majority";
-
+    {      
+        string? connectionString = Environment.GetEnvironmentVariable("MONGODB_URI");
+        //Please do not change the connection string to a static string, keep it as an environment variable. This is for security reasons.
+        //If you need help with adding an environment variable, see 'Server_C#/README.md'. If you need the connection string, contact a group member with access to it.
+        
         services.AddSingleton<IMongoClient>(new MongoClient(connectionString));
         services.AddScoped<FruitContext>(provider => FruitContext.Create(provider.GetRequiredService<IMongoClient>().GetDatabase("test")));
         services.AddScoped<FruitController>();
         services.AddScoped<FruitService>();
         services.AddControllers();
-        services.AddCors(options => 
+        services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+        services.AddCors(options =>
         {
             options.AddPolicy("CorsPolicy",
                 builder => builder

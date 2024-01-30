@@ -64,7 +64,7 @@ After the pull request was closed, the branch on which I made the changes to the
 
 2023-12-23
 --------------
-During the holiday, I'll try to learn more about APIs and related subjects. I've another unrelated project in the works that will implement an API, but with a SQL database instead of a MongoDB one. After the holiday, I'll see if I can redo the current API and make it better, with additional security measures and what not.
+During the holiday, I'll try to learn more about APIs and related subjects. I've another unrelated project in the works that will implement an API, but with an SQL database instead of a MongoDB one. After the holiday, I'll see if I can redo the current API and make it better, with additional security measures and what not.
 
 2023-12-24
 ------------
@@ -79,3 +79,7 @@ Any problems I ran into earlier were fixed some time ago. Now, I've updated the 
 During the previous lesson (2024-01-16), I was working on the backend documentation, the new README.md file (I renamed the previous one to 'API_Documentation', since it only contains information regarding the usage of the API). I finished the document today. It contains information that anyone visiting the repository may find interesting, such as tools used (come to think of it, I think there's already a section for that in 'API_Documentation', so I may want to fix that), VSCodium extensions needed and some other things.
 
 Update: there was no section for that in 'API_Documentation'. Also, the Server_C#/README.md document contains information about prerequisites, packages implemented and so on. A little more than I mentioned above, in other words.
+
+2024-01-29
+-----------
+I've implemented MediatR usage into the API now. This means that the API uses less dependencies and is easier to debug/test. All around improvements, I should think. Also, I changed the code related to the launch of the program. Now, it doesn't listen on localhost, but rather just an IP address. More specifically, the Wi-Fi IP address of the device that runs the code. This means that devices other than only the one that runs the program can now use the API, such as another computer or a phone. I also changed the .gitignore file and moved it to the project root so that, for example, .vs/ doesn't appear on GitHub. I *think* the API is done now, as of right now I do not know what I could add that would bring something of use. I think both README.md and API_Documentation.md contain sufficient information, as well.

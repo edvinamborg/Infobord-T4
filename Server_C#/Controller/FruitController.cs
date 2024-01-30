@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using MongoDB_Test2.Models;
-using MongoDB_Test2.Services;
 using MongoDB.Bson;
+using MediatR;
+using MongoDB_Test2.Handlers.Fruits;
 
 namespace MongoDB_Test2.Controller
 {
@@ -9,20 +10,24 @@ namespace MongoDB_Test2.Controller
     [ApiController]
     public class FruitController : ControllerBase
     {
-        private readonly FruitService service;
-        public FruitController(FruitService service) 
+        private readonly IMediator mediator;
+        public FruitController(IMediator mediator) 
         {
-            this.service = service;
+            this.mediator = mediator;
         }
 
         [HttpGet]
-        public ActionResult<List<Fruit>> GetAll()
+        public async Task<ActionResult<List<Fruit>>> GetAll()
         {
             try 
             {
-                List<Fruit> fruits = service.GetAll();
+                var query = new GetAllQuery();
 
-                return fruits == null ? NotFound("No fruits were found.") : Ok(fruits);
+                GetAllQueryResponse getAllFruits = await mediator.Send(query);
+
+                return getAllFruits.Success == true
+                    ? Ok(getAllFruits.Fruits)
+                    : NotFound($"No fruits were found. {getAllFruits.ErrorMessage}");
             }
             catch (Exception ex)
             {         
@@ -30,13 +35,21 @@ namespace MongoDB_Test2.Controller
             }
         }
         [HttpGet("{id}")]
-        public ActionResult<Fruit> GetFruitById(ObjectId id)
+        public async Task<ActionResult<Fruit>> GetFruitById(ObjectId id)
         {
             try 
             {
-                Fruit fruit = service.GetFruitById(id);
 
-                return fruit == null ? NotFound("Fruit not found.") : Ok(fruit);
+                var command = new GetFruitByIdCommand
+                {
+                    ObjectId = id
+                };
+
+                GetFruitByIdCommandResponse fruit = await mediator.Send(command);
+
+                return fruit.Success == true
+                    ? Ok(fruit.Fruit)
+                    : NotFound($"Fruit not found. {fruit.ErrorMessage}");
             }
             catch (Exception ex) 
             {
@@ -44,20 +57,20 @@ namespace MongoDB_Test2.Controller
             }
         }
         [HttpDelete("{id}")]
-        public ActionResult RemoveFruit(ObjectId id)
+        public async Task<ActionResult> RemoveFruit(ObjectId objectId)
         {
             try 
             {
-                var fruit = service.GetFruitById(id);
-
-                if (fruit is null)
+                var command = new RemoveFruitCommand
                 {
-                    return NotFound();
-                }
+                    ObjectId = objectId
+                };
 
-                service.RemoveFruit(fruit);
+                RemoveFruitCommandResponse removedFruit = await mediator.Send(command);
 
-                return NoContent();
+                return removedFruit.Success == true
+                    ? Ok("Successfully removed fruit.")
+                    : NotFound($"Fruit was not found. {removedFruit.ErrorMessage}");
             }
             catch (Exception ex)
             {
@@ -65,7 +78,7 @@ namespace MongoDB_Test2.Controller
             }
         }
         [HttpPut("{id}")]
-        public ActionResult UpdateFruit(ObjectId id, [FromBody] Fruit updatedFruit)
+        public async Task<ActionResult> UpdateFruit(ObjectId objectId, [FromBody] Fruit updatedFruit)
         {
             if (!ModelState.IsValid)
             {
@@ -74,16 +87,17 @@ namespace MongoDB_Test2.Controller
             
             try 
             {
-                var currentFruit = service.GetFruitById(id);
-
-                if (currentFruit is null)
+                var command = new UpdateFruitCommand
                 {
-                    return NotFound();
-                }
+                    ObjectId = objectId,
+                    UpdatedFruit = updatedFruit
+                };
 
-                service.UpdateFruit(currentFruit, updatedFruit);
+                UpdateFruitCommandResponse newFruit = await mediator.Send(command);
 
-                return NoContent();
+                return newFruit.Success == true
+                    ? Ok("Fruit updated successfully.")
+                    : NotFound($"Fruit was not found, no fruit was updated. {newFruit.ErrorMessage}");
             }
             catch (Exception ex)
             {
@@ -91,15 +105,30 @@ namespace MongoDB_Test2.Controller
             }
         }
         [HttpPost]
-        public ActionResult CreateFruit([FromBody] Fruit fruit) 
+        public async Task<ActionResult> CreateFruit([FromBody] Fruit fruit)
         {
             if (!ModelState.IsValid) 
             {
                 return BadRequest(ModelState);
             }
+    
+            try
+            {
+                var command = new CreateFruitCommand
+                {
+                    CreateFruit = fruit
+                };
 
-            var createdFruit = service.CreateFruit(fruit);
-            return CreatedAtAction(nameof(GetFruitById), new { id = createdFruit._id }, createdFruit);
+                CreateFruitCommandResponse createdFruit = await mediator.Send(command);
+
+                return createdFruit.Success == true
+                    ? CreatedAtAction(nameof(GetFruitById), new { id = createdFruit.CreatedFruit._id }, createdFruit.CreatedFruit)
+                    : StatusCode(500, $"Creation of fruit was unsuccessful. {createdFruit.ErrorMessage}");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
     }
 }
