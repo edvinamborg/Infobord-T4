@@ -6,7 +6,7 @@ namespace MongoDB_Test2.Handlers.Fruits
 {
     public class RemoveFruitCommand : IRequest<RemoveFruitCommandResponse>
     {
-        public ObjectId ObjectId { get; set; }
+        public required ObjectId ObjectId { get; set; }
     }
 
     public class RemoveFruitCommandHandler : IRequestHandler<RemoveFruitCommand, RemoveFruitCommandResponse>
@@ -40,6 +40,6 @@ namespace MongoDB_Test2.Handlers.Fruits
     public class RemoveFruitCommandResponse
     {
         public bool Success { get; set; }
-        public string ErrorMessage { get; set; }
+        public string? ErrorMessage { get; set; }
     }
 }

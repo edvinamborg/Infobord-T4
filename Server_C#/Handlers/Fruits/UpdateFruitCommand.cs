@@ -7,8 +7,8 @@ namespace MongoDB_Test2.Handlers.Fruits
 {
     public class UpdateFruitCommand : IRequest<UpdateFruitCommandResponse>
     {
-        public ObjectId ObjectId { get; set; }
-        public Fruit UpdatedFruit { get; set; }
+        public required ObjectId ObjectId { get; set; }
+        public required Fruit UpdatedFruit { get; set; }
     }
 
     public class UpdateFruitCommandHandler : IRequestHandler<UpdateFruitCommand, UpdateFruitCommandResponse>
@@ -42,6 +42,6 @@ namespace MongoDB_Test2.Handlers.Fruits
     public class UpdateFruitCommandResponse
     {
         public bool Success { get; set; }
-        public string ErrorMessage { get; set; }
+        public string? ErrorMessage { get; set; }
     }
 }

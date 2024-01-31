@@ -39,7 +39,6 @@ namespace MongoDB_Test2.Controller
         {
             try 
             {
-
                 var command = new GetFruitByIdCommand
                 {
                     ObjectId = id

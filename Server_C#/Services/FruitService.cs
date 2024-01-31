@@ -8,21 +8,25 @@ namespace MongoDB_Test2.Services;
 public class FruitService 
 {
     private readonly FruitContext context;
+
     public FruitService(FruitContext context) 
     {
         this.context = context;
     }
+
     public Task<List<Fruit>> GetAll()
     {
         return Task.FromResult(context.Fruits
             .AsNoTracking()
             .ToList());
     }
+
     public Task<Fruit> GetFruitById(ObjectId objectId)
     {
         return Task.FromResult(context.Fruits
             .SingleOrDefault(f => f._id == objectId));
     }
+
     public Task<bool> RemoveFruit(ObjectId objectId)
     {
         Fruit fruit = GetFruitById(objectId).Result;
@@ -37,6 +41,7 @@ public class FruitService
 
         return Task.FromResult(true);
     }
+
     public Task<bool> UpdateFruit(ObjectId objectId, Fruit updatedFruit)
     {
         Fruit currentFruit = GetFruitById(objectId).Result;
@@ -53,6 +58,7 @@ public class FruitService
 
         return Task.FromResult(true);
     }
+    
     public Task<Fruit> CreateFruit(Fruit fruit)
     {
         context.Add(fruit);
