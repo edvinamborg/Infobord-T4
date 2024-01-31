@@ -39,8 +39,8 @@ namespace MongoDB_Test2.Handlers.Fruits
 
     public class GetAllQueryResponse
     {
-        public List<Fruit> Fruits { get; set; }
+        public List<Fruit>? Fruits { get; set; }
         public bool Success { get; set; }
-        public string ErrorMessage { get; set; }
+        public string? ErrorMessage { get; set; }
     }
 }

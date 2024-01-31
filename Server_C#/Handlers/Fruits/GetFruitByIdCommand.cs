@@ -7,7 +7,7 @@ namespace MongoDB_Test2.Handlers.Fruits
 {
     public class GetFruitByIdCommand : IRequest<GetFruitByIdCommandResponse>
     {
-        public ObjectId ObjectId { get; set; }
+        public required ObjectId ObjectId { get; set; }
     }
 
     public class GetFruitByIdCommandHandler : IRequestHandler<GetFruitByIdCommand, GetFruitByIdCommandResponse>
@@ -40,8 +40,8 @@ namespace MongoDB_Test2.Handlers.Fruits
 
     public class GetFruitByIdCommandResponse
     {
-        public Fruit Fruit { get; set; }
+        public Fruit? Fruit { get; set; }
         public bool Success { get; set; }
-        public string ErrorMessage { get; set; }
+        public string? ErrorMessage { get; set; }
     }
 }

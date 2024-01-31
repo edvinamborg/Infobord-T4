@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using MongoDB.Bson;
 using MongoDB_Test2.Models;
 using MongoDB_Test2.Services;
 
@@ -7,7 +6,7 @@ namespace MongoDB_Test2.Handlers.Fruits
 {
     public class CreateFruitCommand : IRequest<CreateFruitCommandResponse>
     {
-        public Fruit CreateFruit { get; set; }
+        public required Fruit CreateFruit { get; set; }
     }
 
     public class CreateFruitCommandHandler : IRequestHandler<CreateFruitCommand, CreateFruitCommandResponse>
@@ -40,8 +39,8 @@ namespace MongoDB_Test2.Handlers.Fruits
 
     public class CreateFruitCommandResponse
     {
-        public Fruit CreatedFruit { get; set; }
+        public Fruit? CreatedFruit { get; set; }
         public bool Success { get; set; }
-        public string ErrorMessage { get; set; }
+        public string? ErrorMessage { get; set; }
     }
 }
