@@ -29,4 +29,4 @@ COPY .env .env
 EXPOSE 80
 
 # Define the command to run the application
-CMD ["sh", "-c", "if [ -f /app/.env ]; then source /app/.env; fi && dotnet MongoDB_Test2.dll"]
+CMD ["pwsh", "-c", "if [ -f /app/.env ]; then source /app/.env; fi && dotnet MongoDB_Test2.dll"]
