@@ -19,10 +19,6 @@ FROM mcr.microsoft.com/dotnet/aspnet:7.0
 
 WORKDIR /app
 
-# Install PowerShell
-RUN apt-get update \
-    && apt-get install -y powershell
-
 # Copy the published output from the build image
 COPY --from=build-env /app/out .
 
@@ -32,5 +28,6 @@ COPY .env .env
 # Expose the port the app runs on
 EXPOSE 80
 
-# Define the command to run the application
-CMD ["pwsh", "-c", "if [ -f /app/.env ]; then source /app/.env; fi && dotnet MongoDB_Test2.dll"]
+# Define the command to run the application 
+CMD ["sh", "-c", "if [ -f /app/.env ]; then source /app/.env; fi && dotnet MongoDB_Test2.dll"]
+# Fix the above line
