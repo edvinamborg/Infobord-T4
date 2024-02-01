@@ -22,6 +22,9 @@ WORKDIR /app
 # Copy the published output from the build image
 COPY --from=build-env /app/out .
 
+# Copy default .env file
+COPY .env .env
+
 # Expose the port the app runs on
 EXPOSE 80
 
