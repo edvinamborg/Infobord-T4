@@ -19,6 +19,10 @@ FROM mcr.microsoft.com/dotnet/aspnet:7.0
 
 WORKDIR /app
 
+# Install PowerShell
+RUN apt-get update \
+    && apt-get install -y powershell
+
 # Copy the published output from the build image
 COPY --from=build-env /app/out .
 
