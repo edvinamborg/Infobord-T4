@@ -23,7 +23,7 @@ We also knew that we wanted a cloud-based database, for ease of access. As such,
 
 With all this clear, all that was left to do was build the API. We used VSCodium as our code editor, Postman as our tool for testing the API, and MongoDB as our cloud-based database. The longest process was learning how to build an API, but by following tutorials and asking ~~ChatGPT~~ our teachers for tips and tricks, we learned all that was necessary. Building the actual API didn't take long, and it worked well for our purposes. It was a captivating and insightful process that brought light to some new concepts and ideas.
 
-[Extensive Backend documentation](Server_C-sharp/README.md)
+[Extensive Backend documentation](Server_C#/README.md)
 
 ## Tips and inspirational quotes from us to you :) 
 A message that will give the next TE4 students some help to get started with learning and also give them an idea of what they will need to learn to complete this project:
