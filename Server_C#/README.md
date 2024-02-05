@@ -28,13 +28,27 @@ This API was created using a simple terminal command: 'dotnet new console'. This
 
 Technologies and packages
 ----------------------------
-This API contains two package references: `AttributeRouting.Core.Web` and `MongoDB.EntityFrameworkCore`. 
+This API contains four package references: `AttributeRouting.Core.Web`, `MongoDB.EntityFrameworkCore`, `MediatR`, and `MediatR.Extensions.Microsoft.DependencyInjection`. 
 
 ### AttributeRouting.Core.Web
-This is a package used for building modern web applications. It contains features such as routing, dependency injections and a Model-View-Controller architecture. These are very useful for building a web API. With a using directive (`using Microsoft.AspNetCore.Mvc;`), you can, for example, create routes for HTTP GET in a controller class. The package should be included in the project by default if you create it using a template as I suggested earlier. You can find the package reference and its version in the .csproj file. In this API, it looks like this: `<PackageReference Include="AttributeRouting.Core.Web" Version="3.5.6" />`.
+This is a package used for building modern web applications. It contains features such as routing, dependency injections and a Model-View-Controller architecture. These are very useful for building a web API. With a using directive (`using Microsoft.AspNetCore.Mvc;`), you can, for example, create routes for HTTP GET in a controller class. The package should be included in the project by default if you create it using a template as I suggested earlier. You can find the package reference and its version in the 'MongoDB_Test2.csproj' file. In this API, it looks like this: `<PackageReference Include="AttributeRouting.Core.Web" Version="3.5.6" />`.
 
 ### MongoDB.EntityFrameworkCore
-This is a package used for integrating Entity Framework Core with MongoDB. In the context of this API, it means that the API uses EF Core to interact with the database, and MongoDB as the backend database. The API uses libraries such as `MongoDB.Driver` and `MongoDB.Bson`. You can install these two separately or `MongoDB.EntityFrameworkCore`, as is the case in this API. The exact usage cases vary slightly, mostly based on how you're interacting with your MongoDB database. You can find the `MongoDB.EntityFrameworkCore` package reference and its version in the .csproj file. In this API, it looks like this: `<PackageReference Include="MongoDB.EntityFrameworkCore" Version="7.0.0-preview.1" />`.
+This is a package used for integrating Entity Framework Core with MongoDB. In the context of this API, it means that the API uses EF Core to interact with the database, and MongoDB as the backend database. The API uses libraries such as `MongoDB.Driver` and `MongoDB.Bson`. You can install these two separately or `MongoDB.EntityFrameworkCore`, as is the case in this API. The exact usage cases vary slightly, mostly based on how you're interacting with your MongoDB database. You can find the `MongoDB.EntityFrameworkCore` package reference and its version in the 'MongoDB_Test2.csproj' file. In this API, it looks like this: `<PackageReference Include="MongoDB.EntityFrameworkCore" Version="7.0.0-preview.1" />`.
+
+### MediatR
+The MediatR pattern and library is meant to reduce dependencies between projects and to make them easier to test and debug. Usage of MediatR was implemented in this project mostly to make future improvements easier, as it currently does little more than to nullify any previous dependencies and make the code a little cleaner. What changed when MediatR was implemented in this project is that rather than the controller class interacting directly with the service class, the controller creates MediatR commands and queries that interact with the service class (which in turn interact with the database). You can find the package reference and its version in the 'MongoDB_Test2.csproj' file. In this API, it looks like this: `<PackageReference Include="MediatR" Version="12.2.0" />`.
+
+### MediatR.Extensions.Microsoft.DependencyInjection
+This package is needed for using a dependency injection to register MediatR. This can be seen in 'FruitController.cs', with the following code: 
+```csharp
+private readonly IMediator mediator;
+public FruitController(IMediator mediator) 
+{
+    this.mediator = mediator;
+}
+```
+Here, a dependency injection is used to register MediatR, which is then used to create and send commands and queries. You can find the package reference and its version in the 'MongoDB_Test2.csproj' file. In this API, it looks like this: `<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />`.
 
 Tools used for building and testing the API
 ----------------------------------------------
