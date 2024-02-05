@@ -6,6 +6,8 @@ We are making a Progressive Web Application (PWA) that will be able to compare d
 ## How does it work?
 You start by entering our website (it will also be downloadable on your phone), and are then presented with a welcoming page split in two. These two parts are mirrored representations of one another. They both contain a column filled with product name and information as well as an image of the product along with a balloon, which displays the carbon dioxide emissions by expanding or decreasing in size.
 
+[Client documentation](client/README.md)
+
 ## How is our idea useful?
 Our project compares different foods and displays the information in a way that makes it easy to tell the difference between the products. It is designed to be able to educate children on the topic of carbon dioxide emissions without it being difficult to comprehend. And, since our project will be accessible on a phone, almost everyone will be able to use it.
 
