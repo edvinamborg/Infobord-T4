@@ -1,14 +1,15 @@
 Dokumentation - infobord - Leo Johansson
 =================== 
-Måndag 27 november 2023
+Monday november 27th 2023
 -----------------
-Idag har jag samlat data om Fett- och Fiberkällor och samlat informationen i ett dokument.
+Gathered data and information on the nutritional value and carbondioxide emissions of different foods
 
-
-Torsdag 30 november 2023
+Thursday november 30th 2023
 ---------------
-Klar med samling av data
+Gathered the rest of the nutritional data
 
-Måndag 18 december 2023
+Monday december 18th 2023
 --------------
-fortsatt arbeta med README.md filen
+Added content about our project to the main README.md file
+
+
