@@ -22,12 +22,11 @@ WORKDIR /app
 # Copy the published output from the build image
 COPY --from=build-env /app/out .
 
-# Copy default .env file
-COPY .env .env
+# Set environment variable during runtime
+ENV MONGODB_URI=default_connection_string
 
 # Expose the port the app runs on
 EXPOSE 80
 
-# Define the command to run the application 
-CMD ["sh", "-c", "if [ -f /app/.env ]; then source /app/.env; fi && dotnet MongoDB_Test2.dll"]
-# Fix the above line
+# Run the application
+CMD ["dotnet", "MongoDB_Test2.dll"]

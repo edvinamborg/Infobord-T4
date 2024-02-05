@@ -7,12 +7,6 @@ Here you will find information regarding the usage of the current API. Any menti
 2. The API will use the Wi-Fi IP address of current device. The link which you can use to test the API will be documented in the terminal upon successfully running it. It will look similar to `http://XXX.XXX.XXX.XXX:80`. `XXX.XXX.XXX.XXX` represents the IP address. Take note of the port that the API uses, in this case 80. The port number can be manipulated in Program.cs. For more details, go to 'How to change port number used by the API'.
 3. Use a tool such as Postman, HttpRepl or a web browser to send HTTP methods to the URL documented in the terminal after running the command above. The current HTTP methods implemented are GET (with or without ObjectId), POST, PUT, and DELETE. The latter two both require an ObjectId. An ObjectId that refers to an item can be found in the database on MongoDB. If the status message returned is 2xx, the method was successful. If not, check your method for any errors. These may include sending an incorrect JSON body for PUT or POST requests, or inputting an ObjectId that is not found in the Database.
 
-### How to test the API after pulling the Docker image
-1. First, you'll need to pull the image that you will use. You can accomplish this with `docker pull api-fruit-image`.
-2. Create your own '.env' file. It can be called 'custom.env', for example. Copy the contents of this project's '.env' file, and paste them in your '.env' file. Then, replace the sample connection string with the actual connection string.
-3. When running the container based on the image, remember to include your custom '.env' file: `docker run -p 80:80 --env-file custom.env fruit-api-image`.
-4. See step 3 of 'How to test the API', above.
-
 ### How to change port number used by the API
 1. Go to 'Program.cs' in the project root of the API.
 2. Locate the following code: `webBuilder.UseUrls($"http://{ipAddress}");` in 'Program.cs'.
