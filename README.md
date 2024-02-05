@@ -6,6 +6,8 @@ We are making a Progressive Web Application (PWA) that will be able to compare d
 ## How does it work?
 You start by entering our website (it will also be downloadable on your phone), and are then presented with a welcoming page split in two. These two parts are mirrored representations of one another. They both contain a column filled with product name and information as well as an image of the product along with a balloon, which displays the carbon dioxide emissions by expanding or decreasing in size.
 
+[Client documentation](client/README.md)
+
 ## How is our idea useful?
 Our project compares different foods and displays the information in a way that makes it easy to tell the difference between the products. It is designed to be able to educate children on the topic of carbon dioxide emissions without it being difficult to comprehend. And, since our project will be accessible on a phone, almost everyone will be able to use it.
 
@@ -23,6 +25,18 @@ We also knew that we wanted a cloud-based database, for ease of access. As such,
 
 With all this clear, all that was left to do was build the API. We used VSCodium as our code editor, Postman as our tool for testing the API, and MongoDB as our cloud-based database. The longest process was learning how to build an API, but by following tutorials and asking ~~ChatGPT~~ our teachers for tips and tricks, we learned all that was necessary. Building the actual API didn't take long, and it worked well for our purposes. It was a captivating and insightful process that brought light to some new concepts and ideas.
 
+[Extensive Backend documentation](Server_C%23/README.md)
+
 ## Tips and inspirational quotes from us to you :) 
-A message that will give the next TE4 students some help to get started with learning and also give them an idea of what they will need to learn to complete this project:
-We believe in you... I guess
+Hello there! This is not a walk in the park. It is difficult to assemble a group and work effectively every day. So here are some tips from us to you to prepare you for what is to come.
+* ### Be open with your group.
+If you are stuck. Don't just sit there. It can be hard but you HAVE TO communicate. There is no point in spending the whole class being ashamed. If you dont know something. Ask someone who does to get you started!
+* ### You NEED planning!
+This project is going to leave you helpless unless you plan. Everyone needs to know what to do in the start of the class.
+This is essential to keep you from getting stuck. If everyone is updated on what needs to be done you will have less issues.
+* ### Don't forget to keep a journal.
+It is important to document in a .MD file in your repository. Teachers LOOOOOVE documentation. Not even the morning coffe gives them that kind of psychedelic experience. So DON'T FORGET IT! You are welcome:) 
+* ### DON'T SLACK!
+You don't have as much time as you think. It seems like a long time for one project. But all it takes to get you overwhelmed with things to do is one or two classes. It might seem ridiculous but it is true. 
+* ### A few words before we say goodbye.
+Now that we have shared our wisdom you should be prepared for this project. Good luck! Don't have fun! We believe in you... I guess..
