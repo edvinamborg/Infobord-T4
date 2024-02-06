@@ -12,10 +12,12 @@ You start by entering our website (it will also be downloadable on your phone), 
 Our project compares different foods and displays the information in a way that makes it easy to tell the difference between the products. It is designed to be able to educate children on the topic of carbon dioxide emissions without it being difficult to comprehend. And, since our project will be accessible on a phone, almost everyone will be able to use it.
 
 ## How we picked our Frontend
-### What did we use and for what?
-ex: we used HTML for the page content.
-### Why did we use it?
-ex: we used HTML because it is widely used and works on almost all browsers.
+Our immediate idea for our frontend was to create a web site using React. It was a clear choice due to the library's potential and ability to combine HTML and JavaScript. 
+
+### What did we use, and why did we use it?
+The content of the web site is rendered by importing HTML from various documents, all of which are then combined in one page that is rendered on the main page. Information about each fruit that is displayed on the page is found in our database, which the frontend retrieves through our API. 
+
+As previously stated, our main tool for building our frontend was React, a versatile library for building responsive and efficient web sites. Our code editor was VSCodium, and with the help of NodeJS and several packages, our frontend was swiftly set up.
 
 ## How we picked our Backend
 Initially, our idea for a backend came from the words of our predecessors. They advised us to use C# as the language for "all that logic". So that's what we did, we built a web API with ASP.NET Core. 
