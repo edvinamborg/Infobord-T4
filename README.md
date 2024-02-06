@@ -27,7 +27,7 @@ With all this clear, all that was left to do was build the API. We used VSCodium
 
 [Extensive Backend documentation](Server_C%23/README.md)
 
-## Tips and inspirational quotes from us to you :) 
+## Tips and inspirational words from us to you :) 
 Hello there! This is not a walk in the park. It is difficult to assemble a group and work effectively every day. So here are some tips from us to you to prepare you for what is to come.
 * ### Be open with your group.
 If you are stuck. Don't just sit there. It can be hard but you HAVE TO communicate. There is no point in spending the whole class being ashamed. If you dont know something. Ask someone who does to get you started!
