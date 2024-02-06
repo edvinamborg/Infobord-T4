@@ -8,6 +8,8 @@ You start by entering our website (it will also be downloadable on your phone), 
 
 [Client documentation](client/README.md)
 
+![image](https://github.com/edvinamborg/Infobord-T4/assets/100678694/62e2f27f-b882-4259-bbcc-171078ff4a1b)
+
 ## How is our idea useful?
 Our project compares different foods and displays the information in a way that makes it easy to tell the difference between the products. It is designed to be able to educate children on the topic of carbon dioxide emissions without it being difficult to comprehend. And, since our project will be accessible on a phone, almost everyone will be able to use it.
 
@@ -16,6 +18,7 @@ Our immediate idea for our frontend was to create a web site using React. It was
 
 ### What did we use, and why did we use it?
 The content of the web site is rendered by importing HTML from various documents, all of which are then combined in one page that is rendered on the main page. Information about each fruit that is displayed on the page is found in our database, which the frontend retrieves through our API. 
+
 
 As previously stated, our main tool for building our frontend was React, a versatile library for building responsive and efficient web sites. Our code editor was VSCodium, and with the help of NodeJS and several packages, our frontend was swiftly set up.
 
