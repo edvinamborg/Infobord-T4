@@ -1,6 +1,7 @@
 API Documentation
 =====================
-Here you will find information regarding the usage of the current API. Any mention of the 'project root' refers to the project root of the API; the folder 'Server_C#'.
+Here you will find information regarding the usage of the current API. Any mention of the 'project root' refers to the project root of the API; the folder 'Server_C#'. For information regarding prerequisites and important information for using this API, see 'README.md'.
+
 ### How to test the API
 1. Start the API. You can accomplish this by running `dotnet run` in the project root using a terminal such as PowerShell.
 2. Take note of the port that the API uses, as of right now it should be 5501. The port number can be manipulated in Program.cs. For more details, go to 'How to change port number used by the API'.
@@ -50,14 +51,18 @@ services.AddCors(options =>
 API usage examples
 =====================
 
-### HTTP GET. This example uses Postman.
+### HTTP GET (all items). This example uses Postman.
 1. Run `dotnet run` in a terminal such as PowerShell in the project root of the API.
 2. Open Postman, choose new request and select the method GET.
-3. Type `http://localhost:5501/api/fruit/`, and press send. JSON data containing all the existing fruits and the data that they contain should be returned, along with a 200 OK status message.
+3. In the search bar, input the URL specified in the console. In my case, it's `http://localhost:5501/api/fruit`, and press send. JSON data containing all the existing fruits and the data that they contain should be returned, along with a 200 OK status message.
 
-### HTTP GET. This example uses a browser (Firefox in this case).
+### HTTP GET (all items). This example uses a browser (Firefox in this case).
 1. Run `dotnet run` in a terminal such as PowerShell in the project root of the API.
-2. In the browser, go to the URL specified in the console. In my case, it's `http://localhost:5501/api/fruit/`.
+2. Open a browser of your choice. In the search bar, go to the URL specified in the console. In my case, it's `http://localhost:5501/api/fruit`.
+
+### HTTP GET (single item). This example uses a browser (Firefox in this case).
+1. Run `dotnet run` in a terminal such as PowerShell in the project root of the API.
+2. Open a browser of your choice. In the search bar, go to the URL specified in the console, and append the ObjectId of the desired fruit to the URL. For example, if the ObjectId is `42189`, the URL would be `http://localhost:5501/api/fruit/42189`. Note that this ObjectId is a mere sample - it does not exist in the database.
 
 ### HTTP POST. This example uses Postman. 
 1. Run `dotnet run` in a terminal such as PowerShell in the project root of the API.
@@ -66,12 +71,12 @@ API usage examples
 4. Under Body, add some JSON code. For example:
 ```json
 {
-    "name":"Simple fruit",
-    "description":"Sample_descriptioner_again",
-    "image_string": "sample_image_string"
+    "header":"Apple",
+    "description":"Sample_description_of_apple",
+    "image": "sample_sample_image_string"
 }
 ```
-These key/value pairs are dependent on the variables found in Fruit.cs under the folder Model under the project root, so make sure you know what data to send with the request. Otherwise, you will likely receive an error status message.
+These key/value pairs are dependent on the variables found in Fruit.cs under the folder Model under the project root, so make sure you know what data to send with the request. Otherwise, you will receive an error status message as the three above are all mandatory.
 6. Type in the URL and port number of the API. This is documented in the console after running `dotnet run`. In my case, it's: `http://localhost:5501/api/fruit/`.
 7. Press send. If the request is successful, you should receive a '204 No Content' status message. If the request fails, check your request to make sure that your JSON is valid and that you completed step 3.
 
@@ -83,12 +88,12 @@ These key/value pairs are dependent on the variables found in Fruit.cs under the
 5. Under Body, add some JSON code. For example:
 ```json
 {
-    "name":"Simple fruit",
-    "description":"Sample_descriptioner_again",
-    "image_string": "sample_image_string"
+    "header":"Apple",
+    "description":"Sample_description_of_apple",
+    "image": "sample_sample_image_string"
 }
 ```
-These key/value pairs are dependent on the variables found in Fruit.cs under the folder Model under the project root, so make sure you know what data to send with the request. Otherwise, you will likely receive an error status message.
+These key/value pairs are dependent on the variables found in Fruit.cs under the folder Model under the project root, so make sure you know what data to send with the request. Otherwise, you will receive an error status message as the three above are all mandatory.
 7. Type `http://localhost:5501/api/fruit/`, and press send. If the request is successful, you should receive a '204 No Content' status message. If the request fails, check your request to make sure that your JSON is valid and that you completed step 4. The request will also fail if no object with the specified ObjectId exists. Also keep in mind that PUT updates the entire item. Even if you only want to change one value, you have to enter all of them into the JSON body - even if some of them are the same as before.
 
 ### HTTP DELETE. This example uses Postman.
