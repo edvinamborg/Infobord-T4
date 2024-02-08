@@ -8,4 +8,4 @@ tisdag 30 november fortsatt arbeta med README.md filen
 
 måndag 1 december hade måndags möte försökte hitta något att göra
 tisdag 2 december hjälpte till bara
-torsdag 4 december skrev
+torsdag 4 december skrev jag
